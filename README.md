@@ -35,3 +35,7 @@ All required dependencies are listed in the `requirements.txt` file. Install the
 
 ```bash
 pip install -r requirements.txt
+
+
+
+I would be grateful if you could identify any issues in the program and contribute your insights to help complete and enhance it.
