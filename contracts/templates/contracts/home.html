@@ -1,0 +1,10 @@
+{% extends "contracts/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h2>Welcome {{user.username }}</h2>
+    <p>You are logged in. Now you are able to create your contract.</p>
+
+    <a href="{% url 'create_contract' %}" class="btn btn-success">Create New Contract</a>
+{% endblock %}
+

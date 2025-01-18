@@ -1,0 +1,22 @@
+.contract-detail {
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.contract-item {
+    margin-bottom: 15px;
+}
+
+.contract-info {
+    font-weight: bold;
+    color: #555;
+}
+
+.contract-actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.contract-actions .btn {
+    margin-right: 10px;
+}

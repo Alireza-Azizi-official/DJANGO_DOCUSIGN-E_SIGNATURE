@@ -1,0 +1,16 @@
+{% extends "contracts/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1>Error Request</h1>
+    <div class="container">
+        <div class="error-message">
+            <p>Unfortunately, there was an issue retrieving the information from Docusign.</p>
+        </div>
+        <div class="details">
+            <p>Please try again or contact support.</p>
+        </div>
+        <a href="/" class="btn">Back to Home Page</a>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends 'contracts/base.html' %}
+
+{% block content %}
+  <h2>Create New Contract</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create and Sign Contract</button>
+  </form>
+
+  <p>Contract Text:</p>
+  <textarea readonly rows="10">{{ form.instance.contract_text }}</textarea>
+  
+  <h3>Your Signature:</h3>
+  <p>By clicking the "Create and Sign Contract" button, you are signing this contract.</p>
+{% endblock %}

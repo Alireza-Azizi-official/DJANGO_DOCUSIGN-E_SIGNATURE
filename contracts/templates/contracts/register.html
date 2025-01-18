@@ -1,0 +1,14 @@
+{% extends 'contracts/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>REGISTER</h2>
+    <form method="POST" class="register-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">REGISTER</button>
+    </form>
+{% endblock %}
+

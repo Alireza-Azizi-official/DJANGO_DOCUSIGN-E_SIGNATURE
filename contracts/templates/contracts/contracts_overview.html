@@ -1,0 +1,41 @@
+{% extends 'contracts/base.html' %}
+
+{% block content %}
+<body>
+    <div class="container">
+        <h1>Contract Overview</h1>
+        <textarea id="contract-text">This is a sample contract text. It serves as a placeholder for a real contract. You can edit this text to suit your needs. Once done, click on the "Save" button to confirm your changes. If you wish to revert to the original text, click "Reset".</textarea>
+        
+        <!-- Fields for second signer's email and name -->
+        <div class="second-signer">
+            <h2>Second Signer's Information</h2>
+            <label for="signer-email">Second Signer's Email:</label>
+            <input type="email" id="signer-email" placeholder="Enter second signer's email">
+            <br>
+            <label for="signer-name">Second Signer's Name:</label>
+            <input type="text" id="signer-name" placeholder="Enter second signer's name">
+        </div>
+
+        <div class="actions">
+            <button class="btn-save" onclick="saveContract()">Save</button>
+            <button class="btn-reset" onclick="resetContract()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        const originalText = "This is a sample contract text. It serves as a placeholder for a real contract. You can edit this text to suit your needs. Once done, click on the 'Save' button to confirm your changes. If you wish to revert to the original text, click 'Reset'.";
+
+        function saveContract() {
+            const text = document.getElementById('contract-text').value;
+            const secondSignerEmail = document.getElementById('signer-email').value;
+            const secondSignerName = document.getElementById('signer-name').value;
+            alert("Contract saved: " + text + "\nSecond Signer: " + secondSignerName + " (" + secondSignerEmail + ")");
+        }
+
+        function resetContract() {
+            document.getElementById('contract-text').value = originalText;
+            alert("Contract text has been reset to the original.");
+        }
+    </script>
+</body>
+{% endblock content %}

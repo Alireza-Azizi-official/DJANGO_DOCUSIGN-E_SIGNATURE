@@ -1,0 +1,56 @@
+{% extends "contracts/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1>contract detail</h1>
+    <div class="contract-detail">
+        <div class="contract-item">
+            <strong>envelope ID:</strong>
+            <span class="contract-info">{{ contract.envelope_id }}</span>
+        </div>
+        <div class="contract-item">
+            <strong>status:</strong>
+            <span class="contract-info">{{ contract.status }}</span>
+        </div>
+        <div class="contract-item">
+            <strong>recipient Name:</strong>
+            <span class="contract-info">{{ contract.name_of_other_signer }}</span>
+        </div>
+        <div class="contract-item">
+            <strong>recipient Email:</strong>
+            <span class="contract-info">{{ contract.email_of_other_signer }}</span>
+        </div>
+        <div class="contract-item">
+            <strong>contract Text:</strong>
+            <p>{{ contract.contract_text|default:"No contract text available" }}</p>
+        </div>
+        <div class="contract-item">
+            <strong>signed by you:</strong>
+            <span class="contract-info">
+                {% if contract.signed_by_user %} Yes {% else %} No {% endif %}
+            </span>
+        </div>
+        <div class="contract-item">
+            <strong>signed by recipient:</strong>
+            <span class="contract-info">
+                {% if contract.signed_by_recipient %} Yes {% else %} No {% endif %}
+            </span>
+        </div>
+    </div>
+    
+
+    <div class="contract-actions">
+        <a href="{% url 'home' %}" class="btn btn-primary">go back to home</a>
+        
+        {% if contract.status != 'completed' %}
+            <a href="https://demo.docusign.net/restapi/v2.1/accounts/{{ account_id }}/envelopes/{{ contract.envelope_id }}/views/recipient" target="_blank" class="btn btn-success">
+                sign the contract
+            </a>            
+        {% endif %}
+
+        {% if contract.id %}
+            <a href="{% url 'download_contract' contract.id %}" class="btn btn-secondary">Download Contract</a>
+        {% endif %}
+    </div>
+{% endblock %}
+ 

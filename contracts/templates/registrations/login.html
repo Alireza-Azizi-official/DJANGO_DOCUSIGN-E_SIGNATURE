@@ -1,0 +1,26 @@
+{% extends 'contracts/base.html' %}
+{% load static %}
+{% block content %}
+    <h2>Login</h2>
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+    {% if messages %}
+        <div class="alert alert-danger mt-3">
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock content %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock extra_styles %}
